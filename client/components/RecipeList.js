@@ -14,11 +14,10 @@ exports.controller = function () {
   ctrl.recipe = null;
   ctrl.recipeNames = [];
   ctrl.query = m.prop('');
-  ctrl.course = m.prop('');
+  ctrl.course = m.prop('Main Dishes'); // Default selection
 
 
   ctrl.searchIngredient = function() {
-    console.log('course before submit', ctrl.course());
     var data = {
       query : ctrl.query(),
       course : ctrl.course()
@@ -55,8 +54,10 @@ exports.view = function (ctrl) {
     )],
     m('.recipes', [
       m('ul', [
-        _.map(ctrl.recipeNames, function(recipeName) {
-          return m('li', recipeName)
+        _.map(ctrl.recipe, function(recipe) {
+          return m('li', [
+            m('a', { href : 'http://www.yummly.com/recipe/' + recipe.id, target : 'blank' }, recipe.recipeName)
+          ])
         })
       ]),
     ])
