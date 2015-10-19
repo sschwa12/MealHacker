@@ -17,28 +17,32 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  Meal Hacker
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  Planify your meals!
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  Are you a crazy person who works 6-day, 75 hour weeks? Do you have literally no time for anything? Do you find yourself eating Jimmy Johns or Chipotle or some other crappy fast food option, simply because you struggle to plan out 6 days worth of meals?\n  Well struggle no more! __appname__ will make meal planning and recipe selection a breeze. No more wandering aimlessly through the grocery store wishing you had planned ahead.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  The first-world struggle of having way too many food options, and not enough time to decide what to make for the week.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+
+  By providing an easy to use interface, along with award-winning recipes from all over the web.
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  __appname__ is the proactive approach to streamlining your weekly meals. It allows you to leverage bleeding edge technology to create a paradigm shift in the way you think about grocery shopping. It's syngergistic!
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+
+  Simply choose a meal, pick an ingredient, and add it to your weekly planner.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+
+  My life used to suck. Now it's awesome! Scott is a god damn rockstar.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+
+  Head to __website__ and start planning your meals today!

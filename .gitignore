@@ -1,5 +1,8 @@
 ### node etc ###
 
+# Mac
+.DS_Store
+
 # Logs
 logs
 *.log
