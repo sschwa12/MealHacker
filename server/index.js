@@ -19,14 +19,6 @@ app.use(express.static(assetFolder))
 
 app.use(bodyParser.json());
 
-
-// { 'Parmesan Chicken Cutlets - Weight Watchers': 
-//    { day: 'Monday',
-//      id: 'Parmesan-Chicken-Cutlets---Weight-Watchers-1341093' 
-//    }
-// }
-
-
 //
 // The Catch-all Route
 // This is for supporting browser history pushstate.
@@ -37,24 +29,27 @@ app.get('/recipes', function(req, res) {
   Meal.find({}).exec(function(err, found) {
       if (err) { console.log(err) }
     else {
-      res.status(200).send(found)
+      res.send(found)
     }
   })
 })
 
 app.post('/recipes', function(req, res) {
   _.map(req.body, function(recipe) {
-    var meal = new Meal({
-      url : recipe.id,
-      recipeName : recipe.recipe,
-      day : recipe.day
-    });
-    meal.save(function(err, newMeal) {
-      if (err) {console.log(err) }
-        else {
-          res.status(200).send(newMeal);
-        }
+    Meal.findOne({ url : recipe.url }).exec(function(err, found) {
+      if (err) { console.log(err) } else { console.log(found); }
+      if (!found) {
+        var meal = new Meal({
+          url : recipe.url,
+          recipeName : recipe.recipeName,
+          day : recipe.day
+        });
+        meal.save(function(err, newMeal) {
+          if (err) {console.log(err) }
+        })
+      }
     })
+
   })
 })
 

@@ -47,6 +47,11 @@ button {
   border-radius: 4px;
 }
 
+.planner {
+  width: 700px;
+  margin: 0 auto;
+}
+
 .remove {
-  margin-left: 50px;
+  float: right;
 }

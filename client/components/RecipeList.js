@@ -40,7 +40,6 @@ exports.controller = function () {
     Recipe.fetch(data)
       .then(function(recipes) {
         ctrl.recipe = recipes.matches;
-        // console.log(recipes)
         _.map(ctrl.recipe, function(recipe) {
           return recipe.recipeName
         })
@@ -50,11 +49,10 @@ exports.controller = function () {
 
   ctrl.addToPlanner = function(recipe, day, id) {
     ctrl.planner.push({
-      recipe : recipe,
+      recipeName : recipe,
       day : day,
-      id : id
+      url : id
     });
-    console.log(ctrl.planner);
   }
 
 }
