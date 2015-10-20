@@ -23,7 +23,7 @@ Once the project moves into development, the press release can be used as a touc
   Planify your meals!
 
 ## Summary ##
-  Are you a crazy person who works 6-day, 75 hour weeks? Do you have literally no time for anything? Do you find yourself eating Jimmy Johns or Chipotle or some other crappy fast food option, simply because you struggle to plan out 6 days worth of meals?\n  Well struggle no more! __appname__ will make meal planning and recipe selection a breeze. No more wandering aimlessly through the grocery store wishing you had planned ahead.
+  Are you a crazy person who works 6-day, 75 hour weeks? Do you have literally no time for anything? Do you find yourself eating Jimmy Johns or Chipotle or some other crappy fast food option, simply because you struggle to plan out 6 days worth of meals?\n  Well struggle no more! Meal Hacker will make meal planning and recipe selection a breeze. No more wandering aimlessly through the grocery store wishing you had planned ahead.
 
 ## Problem ##
   The first-world struggle of having way too many food options, and not enough time to decide what to make for the week.
@@ -33,7 +33,7 @@ Once the project moves into development, the press release can be used as a touc
   By providing an easy to use interface, along with award-winning recipes from all over the web.
 
 ## Quote from You ##
-  __appname__ is the proactive approach to streamlining your weekly meals. It allows you to leverage bleeding edge technology to create a paradigm shift in the way you think about grocery shopping. It's syngergistic!
+  Meal Hacker is the proactive approach to streamlining your weekly meals. It allows you to leverage bleeding edge technology to create a paradigm shift in the way you think about grocery shopping. It's syngergistic!
 
 ## How to Get Started ##
 
@@ -45,4 +45,4 @@ Once the project moves into development, the press release can be used as a touc
 
 ## Closing and Call to Action ##
 
-  Head to __website__ and start planning your meals today!
+  Head to my local host and start planning your meals today!
