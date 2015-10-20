@@ -9,7 +9,6 @@ var endPoint = 'http://api.yummly.com/v1/api/recipes';
 
 
 Recipe.fetch = function(data) {
-  console.log('The query data was:', data);
   return m.request({
     method : 'GET', 
     url : endPoint +

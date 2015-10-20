@@ -40,7 +40,7 @@ exports.controller = function () {
     Recipe.fetch(data)
       .then(function(recipes) {
         ctrl.recipe = recipes.matches;
-        console.log(recipes)
+        // console.log(recipes)
         _.map(ctrl.recipe, function(recipe) {
           return recipe.recipeName
         })
@@ -48,8 +48,11 @@ exports.controller = function () {
 
   }
 
-  ctrl.addToPlanner = function(recipe, day) {
-    ctrl.planner[recipe] = day;
+  ctrl.addToPlanner = function(recipe, day, id) {
+    ctrl.planner[recipe] = {
+      day : day,
+      id : id
+    };
   }
 }
 
@@ -85,14 +88,14 @@ exports.view = function (ctrl) {
             m('button#add',  { onclick : function() {
                 var recipeToGetDayFrom = document.getElementById(i);
                 var day = recipeToGetDayFrom.childNodes[1];
-                ctrl.addToPlanner(recipe.recipeName, day.value);
+                ctrl.addToPlanner(recipe.recipeName, day.value, recipe.id);
               }
             }, 'Add to Planner')  
           ])
         })
       ]),
     ]),
-    m.component(mealPlanner, ctrl.planner)
+    m.component(mealPlanner, ctrl.planner, ctrl.days)
   ) 
 }
 
