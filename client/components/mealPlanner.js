@@ -8,7 +8,8 @@ exports.controller = function(recipe) {
 
   ctrl.getData = function() {
     Planner.fetch().then(function(data) {
-      console.log('got from db:', data);
+      recipe = data;
+      console.log(recipe)
     })
   }
 
@@ -19,6 +20,17 @@ exports.controller = function(recipe) {
       console.log('saved', saved)
     })
   }
+
+  ctrl.removeFromPlanner = function(e) {
+    console.log('clicked')
+    var el = e.srcElement.id;
+    _.each(recipe, function(recipeItem) {
+      console.log(recipeItem.id);
+        delete recipe[recipeItem.id] === el
+    })
+    e.srcElement.parentElement.innerHTML = '';
+  }
+
 }
 
 
@@ -27,11 +39,12 @@ exports.view = function (ctrl, args, days) {
     m('h1', 'Meal Planner'),
     _.map(days, function(day) {
       var singleDay = day;
-      return m('div', { class : 'day'}, day, [
+      return m('div.day', day, [
         _.map(args, function(result) {
           if (singleDay === result.day) {
               return m('div.planned-recipe', [
-                m('a', { href : 'http://www.yummly.com/recipe/' + result.id, target : 'blank' }, result.recipe)
+                m('a', { href : 'http://www.yummly.com/recipe/' + result.id, target : 'blank' }, result.recipe),
+                m('span.remove', { id : result.id, onclick : function(e) { ctrl.removeFromPlanner(e) } }, 'Remove')
               ])
           }
         }),

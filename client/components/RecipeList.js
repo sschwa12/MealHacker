@@ -56,6 +56,7 @@ exports.controller = function () {
     });
     console.log(ctrl.planner);
   }
+
 }
 
 exports.view = function (ctrl) {
