@@ -4,26 +4,11 @@ var _ = require('underscore');
 var recipeList = require('./RecipeList');
 
 
-exports.controller = function () {
-  var ctrl = this;
-
-  ctrl.days = [
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-    'Sunday'
-  ]
-
-}
-
-exports.view = function (ctrl) {
+exports.view = function (ctrl, args) {
   return m('.planner', [
     m('h1', 'Meal Planner'),
-    _.map(ctrl.days, function(day) {
-      return m('div#' + day, day)
+    _.map(args, function(recipe, day) {
+      return m('h1', recipe + ' ' + day);
     })
   ])
 }

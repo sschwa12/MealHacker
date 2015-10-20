@@ -1,6 +1,7 @@
 var m = require('mithril');
 var Recipe = require('../models/recipes');
 var _ = require('underscore');
+var mealPlanner = require('./mealPlanner');
 
 exports.controller = function () {
   var ctrl = this;
@@ -27,6 +28,7 @@ exports.controller = function () {
   ctrl.course = m.prop('Main Dishes'); // Default selection
   ctrl.day = m.prop('Monday');
   ctrl.data = {};
+  ctrl.planner = {};
 
 
   ctrl.searchIngredient = function() {
@@ -46,16 +48,17 @@ exports.controller = function () {
 
   }
 
-  ctrl.addToPlanner = function(i) {
-    console.log(i)
+  ctrl.addToPlanner = function(recipe, day) {
+    ctrl.planner[recipe] = day;
   }
 }
+
 
 exports.view = function (ctrl) {
   return m('.entry-form', [
     m('h1', "Search"),
     m('h3', "Enter an ingredient:"),
-
+    // Search Form
     m('form#search', 
       { onsubmit : ctrl.searchIngredient.chill() }, [
         m('input#query', { oninput : m.withAttr('value', ctrl.query) }),
@@ -68,21 +71,28 @@ exports.view = function (ctrl) {
         m('button#search', 'Search')
       ]
     )],
+    // Recipe list
     m('.recipes', [
       m('.recipe-list', [
         _.map(ctrl.recipe, function(recipe, i) {
-          return m('div#' + i, { class : 'nanner' }, [
+          return m('div#' + i, { class : 'recipe' }, [
             m('a', { href : 'http://www.yummly.com/recipe/' + recipe.id, target : 'blank' }, recipe.recipeName),
             m('select#day', { onchange : m.withAttr('value', ctrl.day) }, [
               ctrl.days.map(function(day) {
                 return m('option#', {value: day, name : recipe.recipeName}, day);
               })
             ]),
-            m('button#add',  { onclick : function() { ctrl.addToPlanner(i) } }, 'Add to Planner')  
+            m('button#add',  { onclick : function() {
+                var recipeToGetDayFrom = document.getElementById(i);
+                var day = recipeToGetDayFrom.childNodes[1];
+                ctrl.addToPlanner(recipe.recipeName, day.value);
+              }
+            }, 'Add to Planner')  
           ])
         })
       ]),
-    ])
+    ]),
+    m.component(mealPlanner, ctrl.planner)
   ) 
 }
 

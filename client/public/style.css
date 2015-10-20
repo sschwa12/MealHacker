@@ -1,0 +1,9 @@
+.app {
+  width: 1024px;
+  margin: 0 auto;
+  background-color: blue;
+}
+
+.entry-form {
+  width: 50%
+}

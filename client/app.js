@@ -12,8 +12,7 @@ App.controller = function () {}
 App.view = function (ctrl) {
   return [
     m('h1', 'Meal Hacker'),
-    m.component(recipeList),
-    m.component(mealPlanner)
+    m.component(recipeList)
   ]
 }
 
