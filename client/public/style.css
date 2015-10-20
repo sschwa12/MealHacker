@@ -1,9 +1,48 @@
-.app {
-  width: 1024px;
+body {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+#app {
+  width: 900px;
   margin: 0 auto;
-  background-color: blue;
 }
 
 .entry-form {
-  width: 50%
+
+}
+
+.recipe-list {
+  text-align: right;
+}
+
+.recipe {
+  margin: 20px;
+  padding: 8px;
+}
+
+.recipe:hover {
+  background-color: #d3d3d3;
+  border-radius: 4px;
+}
+
+.recipe a {
+  float: left;
+  text-decoration: none;
+  color: black;
+}
+
+.day {
+  margin-right: 50px;
+  padding: 10px;
+}
+
+#course {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+button {
+  background-color: dodgerblue;
+  border: 0;
+  border-radius: 4px;
 }

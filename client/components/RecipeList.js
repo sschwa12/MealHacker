@@ -28,7 +28,7 @@ exports.controller = function () {
   ctrl.course = m.prop('Main Dishes'); // Default selection
   ctrl.day = m.prop('Monday');
   ctrl.data = {};
-  ctrl.planner = {};
+  ctrl.planner = [];
 
 
   ctrl.searchIngredient = function() {
@@ -49,13 +49,14 @@ exports.controller = function () {
   }
 
   ctrl.addToPlanner = function(recipe, day, id) {
-    ctrl.planner[recipe] = {
+    ctrl.planner.push({
+      recipe : recipe,
       day : day,
       id : id
-    };
+    });
+    console.log(ctrl.planner);
   }
 }
-
 
 exports.view = function (ctrl) {
   return m('.entry-form', [
@@ -80,12 +81,12 @@ exports.view = function (ctrl) {
         _.map(ctrl.recipe, function(recipe, i) {
           return m('div#' + i, { class : 'recipe' }, [
             m('a', { href : 'http://www.yummly.com/recipe/' + recipe.id, target : 'blank' }, recipe.recipeName),
-            m('select#day', { onchange : m.withAttr('value', ctrl.day) }, [
+            m('select.day', { onchange : m.withAttr('value', ctrl.day) }, [
               ctrl.days.map(function(day) {
                 return m('option#', {value: day, name : recipe.recipeName}, day);
               })
             ]),
-            m('button#add',  { onclick : function() {
+            m('button#add',  { onclick : function(el) {
                 var recipeToGetDayFrom = document.getElementById(i);
                 var day = recipeToGetDayFrom.childNodes[1];
                 ctrl.addToPlanner(recipe.recipeName, day.value, recipe.id);
@@ -96,10 +97,5 @@ exports.view = function (ctrl) {
       ]),
     ]),
     m.component(mealPlanner, ctrl.planner, ctrl.days)
-  ) 
+  )
 }
-
-
-
-
-
